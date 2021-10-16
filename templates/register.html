@@ -1,0 +1,110 @@
+
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/regstyle.css'%}">
+
+    <script src="main.js"></script>
+    <style>
+        .body-reg {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            background:#f3f3f3;
+            color: #616060;
+            margin:5%;
+        }
+        
+        .card-reg {
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 65px;
+        }
+        .card {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fefeff;
+            background-clip: border-box;
+            border-radius: 0px;
+            margin-left: 35%;
+            margin-bottom: 0%;
+            box-shadow: -3px 7px 12px 0px #cfcaca;
+        }
+        
+        .btn-info {
+                color: #fff;
+                background-color: #a98df5;
+                border-color: #a681d8;
+                border-radius: 5px;
+        }
+        
+        .form-input{
+            border-radius: 5px;
+            padding:7px;
+            border-width: 1px;
+            border-color: gray;
+            border-top-color: gray;
+        }
+    </style>
+    <title>registration</title>
+</head>
+<body class="body-reg">
+    <div class="container">
+        <div class="row">
+        <div class="card" >
+            <div class="card-reg">
+               <h5 class="card-title text-center">register</h5>
+                <form action="register" method="POST" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="form-group">
+                    <input type="text" name="first_name"class="form-input" placeholder="First name"><br>
+                    </div>
+                    <div class="form-group">
+                    <input type="text" name="last_name"class="form-input" placeholder="last name name"><br>
+                    </div>
+                    <div class="form-group">
+                    <input type="text" name="username"class="form-input" placeholder="User name"><br>
+                    </div>
+                    <div class="form-group">
+                    <input type="email" name="email" class="form-input"placeholder="email"><br>
+                    </div>
+                    <div class="form-group">
+                    <input type="text" name="password1"class="form-input" placeholder=" enter password"><br>
+                    </div>
+                    <div class="form-group">
+                    <input type="text" name="password2"class="form-input" placeholder="confirm password"><br>
+                    </div>
+                    <button type="submit" class="btn btn-info">submit</button>
+                    
+                </form>
+            </div>
+        </div>    
+          <img class="card-img" url="https://image.freepik.com/free-vector/traveling-concept-illustration_114360-2447.jpg">
+        </div>
+    </div>    
+{%for message in messages %}
+<h4> {{message}}</h4>
+{%endfor%}
+
+</body>
+</html>
+
+
+
+

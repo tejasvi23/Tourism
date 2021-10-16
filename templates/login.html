@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='main.js'></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/login.css'%}">
+</head>
+<body class="body">
+    <div class="container">
+        <div class="row">
+            <div class="card-login" width="18em" >
+                <div class="card-form">
+                <h5 class="card-title text-center">Login</h5>
+                    <form action="login" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                        <input type="text" name="username"class="form-input" placeholder="username"><br>
+                        </div>
+                        <div class="form-group">
+                        <input type="password" name="password"class="form-input" placeholder="password"><br>
+                        </div>
+                        <input type="Submit"class="btn btn-info">
+                    </form>
+                </div>
+            </div>
+         </div>
+    </div>
+
+
+    <div>
+            {% for message in messages %}
+            <h3> {{message}}  </h3>
+            {% endfor %}
+    </div>
+</body>
+</html>
